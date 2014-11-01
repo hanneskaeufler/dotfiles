@@ -1,0 +1,8 @@
+[user]
+	name = Hannes Kaeufler
+	email = hannes.kaeufler@gmail.com
+[push]
+	default = simple
+[core]
+	editor = vim
+	excludesfile = /Users/hanneskaeufler/.gitignore_global
