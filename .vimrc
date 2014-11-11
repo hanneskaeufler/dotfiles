@@ -13,7 +13,8 @@ Plugin 'benmills/vimux'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-commentary'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'PDV--phpDocumentor-for-Vim'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'rking/ag.vim'
 
 " Vundle teardown
 call vundle#end()
