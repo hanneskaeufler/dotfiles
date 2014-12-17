@@ -60,7 +60,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+" save files with ctrl-s
+noremap <C-S> :update<CR>
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
@@ -88,7 +89,7 @@ nmap <leader>tt :execute ":Tmux ./bin/phpunit -c app/ --filter=test_show$" expan
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
 
 " Clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
+nnoremap <CR> :nohlsearch<cr>
 
 " indention for yaml, scss, ruby with 2 spaces
 autocmd BufNewFile,BufRead *.yml set filetype=yaml
