@@ -9,12 +9,16 @@ Plugin 'gmarik/Vundle.vim'
 " Vundle plugins here
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tomasr/molokai'
-Plugin 'benmills/vimux'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-commentary'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'rking/ag.vim'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'beyondwords/vim-twig'
 
 " Vundle teardown
 call vundle#end()
@@ -29,13 +33,13 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set colorcolumn=80
+set colorcolumn=120
 
 set autoindent
 set incsearch
 set hlsearch
 set ignorecase smartcase
-set number
+set relativenumber
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
@@ -73,15 +77,12 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   exec a:vim_command . " " . selection
 endfunction
 
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <c-P> :call SelectaCommand("find * -type f", "", ":e")<cr>
-
-" Generate PhpDoc
-map <leader>d :call PhpDocSingle()<CR>
-map <leader>e :Explore<CR>
-map <leader>f <C-W>_
-map <leader>uf <C-W>=
+nmap <leader>e :Explore<CR>
+nmap <leader>f <C-W>_
+nmap <leader>uf <C-W>=
+nmap <leader>ta :execute ":Tmux ./bin/phpunit -c app/" expand("%")<CR>
+nmap <leader>tf :execute ":Tmux ./bin/phpunit -c app/" expand("%")<CR>
+nmap <leader>tt :execute ":Tmux ./bin/phpunit -c app/ --filter=test_show$" expand("%")<CR>
 
 " CocoaPods
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
@@ -89,6 +90,21 @@ autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
 " Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
-" indention for yaml with 2 spaces
+" indention for yaml, scss, ruby with 2 spaces
 autocmd BufNewFile,BufRead *.yml set filetype=yaml
-autocmd FileType yaml setlocal sw=2 sts=2
+autocmd FileType yaml setlocal sw=2 st=2 sts=2
+autocmd FileType scss setlocal sw=2 st=2 sts=2
+autocmd FileType ruby setlocal sw=2 st=2 sts=2
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
+
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll|cache\.php)$'
+    \ }
+let g:ctrlp_map = '<c-p>'
+
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["html"]
+    \ }
