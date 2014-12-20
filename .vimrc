@@ -19,6 +19,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'beyondwords/vim-twig'
+Plugin 'tpope/vim-surround'
+Plugin 'davidpdrsn/vim-spectacular'
 
 " Vundle teardown
 call vundle#end()
@@ -81,9 +83,7 @@ endfunction
 nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
-nmap <leader>ta :execute ":Tmux ./bin/phpunit -c app/" expand("%")<CR>
-nmap <leader>tf :execute ":Tmux ./bin/phpunit -c app/" expand("%")<CR>
-nmap <leader>tt :execute ":Tmux ./bin/phpunit -c app/ --filter=test_show$" expand("%")<CR>
+map <leader>t :write\|:call spectacular#run_tests()<cr>
 
 " CocoaPods
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
@@ -109,3 +109,16 @@ let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "passive_filetypes": ["html"]
     \ }
+
+function! IsInSymfonyApp(test_file)
+    return filereadable("app/phpunit.xml.dist")
+endfunction
+
+function! IsPHPUnitInBin(test_file)
+    return filereadable("bin/phpunit")
+endfunction
+
+let g:spectacular_integrate_with_tmux = 1
+call spectacular#add_test_runner("php", "\./bin/phpunit -c app/ {spec}", "Test", function("IsInSymfonyApp"))
+call spectacular#add_test_runner("php", "\./bin/phpunit {spec}", "Test", function("IsPHPUnitInBin"))
+call spectacular#add_test_runner("php", "\./vendor/bin/phpunit {spec}", "Test")
