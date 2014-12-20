@@ -122,3 +122,5 @@ let g:spectacular_integrate_with_tmux = 1
 call spectacular#add_test_runner("php", "\./bin/phpunit -c app/ {spec}", "Test", function("IsInSymfonyApp"))
 call spectacular#add_test_runner("php", "\./bin/phpunit {spec}", "Test", function("IsPHPUnitInBin"))
 call spectacular#add_test_runner("php", "\./vendor/bin/phpunit {spec}", "Test")
+
+call spectacular#add_test_runner("ruby", "bundle exec rspec {spec}", "_spec.rb")
