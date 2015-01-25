@@ -20,6 +20,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'beyondwords/vim-twig'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-cucumber'
 Plugin 'davidpdrsn/vim-spectacular'
 
 " Vundle teardown
@@ -122,5 +123,8 @@ let g:spectacular_integrate_with_tmux = 1
 call spectacular#add_test_runner("php", "\./bin/phpunit -c app/ {spec}", "Test", function("IsInSymfonyApp"))
 call spectacular#add_test_runner("php", "\./bin/phpunit {spec}", "Test", function("IsPHPUnitInBin"))
 call spectacular#add_test_runner("php", "\./vendor/bin/phpunit {spec}", "Test")
+call spectacular#add_test_runner("php", "\./bin/phpspec run {spec}", "Spec")
+call spectacular#add_test_runner("cucumber", "\./bin/behat {spec}", ".feature")
 
 call spectacular#add_test_runner("ruby", "bundle exec rspec {spec}", "_spec.rb")
+call spectacular#add_test_runner("javascript", "\./node_modules/karma/bin/karma start --single-run {spec}", "Spec.js")
