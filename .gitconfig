@@ -6,3 +6,5 @@
 [core]
 	editor = vim
 	excludesfile = /Users/hanneskaeufler/.gitignore_global
+[help]
+	autocorrect = 1
