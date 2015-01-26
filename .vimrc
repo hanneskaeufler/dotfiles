@@ -22,6 +22,7 @@ Plugin 'beyondwords/vim-twig'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-cucumber'
 Plugin 'davidpdrsn/vim-spectacular'
+Plugin 'majutsushi/tagbar'
 
 " Vundle teardown
 call vundle#end()
@@ -85,6 +86,7 @@ nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
 map <leader>t :write\|:call spectacular#run_tests()<cr>
+nmap <leader>j <C-]>
 
 " CocoaPods
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
