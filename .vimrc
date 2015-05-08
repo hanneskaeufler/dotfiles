@@ -22,7 +22,8 @@ Plugin 'beyondwords/vim-twig'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-cucumber'
 Plugin 'davidpdrsn/vim-spectacular'
-Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+Plugin 'airblade/vim-gitgutter'
 
 " Vundle teardown
 call vundle#end()
@@ -46,6 +47,8 @@ set ignorecase smartcase
 set relativenumber
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
+" always show status bar
+set laststatus=2
 
 " Store temporary files in a central spot
 set backup
@@ -130,3 +133,14 @@ call spectacular#add_test_runner("cucumber", "\./bin/behat {spec}", ".feature")
 
 call spectacular#add_test_runner("ruby", "bundle exec rspec {spec}", "_spec.rb")
 call spectacular#add_test_runner("javascript", "\./node_modules/karma/bin/karma start --single-run {spec}", "Spec.js")
+
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a=> :Tabularize /=><CR>
+vmap <Leader>a=> :Tabularize /=><CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
+let g:ycm_complete_in_comments = 1
+let g:ycm_add_preview_to_completeopt = 0
+set completeopt-=preview
