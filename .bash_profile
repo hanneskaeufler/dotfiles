@@ -13,4 +13,5 @@ alias gst='git status'
 alias gap='git add -p'
 alias gc='git branch | cut -c 3- | selecta | xargs git checkout'
 alias c=clear
+alias git-remove-merged-branches='git branch --merged | tail -r | tail -n +2 | xargs git branch -d'
 stty -ixon
