@@ -25,7 +25,6 @@ Plugin 'davidpdrsn/vim-spectacular'
 Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
-Plugin 'wikitopian/hardmode'
 Plugin 'tpope/vim-jdaddy'
 
 " Vundle teardown
@@ -147,5 +146,3 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 let g:ycm_complete_in_comments = 1
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
-
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
