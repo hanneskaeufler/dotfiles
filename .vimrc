@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Vundle plugins here
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'tomasr/molokai'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-commentary'
@@ -142,7 +141,21 @@ nmap <Leader>a=> :Tabularize /=><CR>
 vmap <Leader>a=> :Tabularize /=><CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>pp gqaj
 
-let g:ycm_complete_in_comments = 1
-let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
