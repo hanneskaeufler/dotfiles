@@ -93,7 +93,7 @@ map <leader>t :write\|:call spectacular#run_tests()<cr>
 nmap <leader>j <C-]>
 
 " search for word under cursor
-nmap <leader>f :Ag <C-r><C-w><CR>
+nmap <leader>s :Ag <C-r><C-w><CR>
 
 " CocoaPods
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
