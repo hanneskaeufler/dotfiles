@@ -14,4 +14,11 @@ alias gap='git add -p'
 alias gc='git branch | cut -c 3- | selecta | xargs git checkout'
 alias c=clear
 alias git-remove-merged-branches='git branch --merged | tail -r | tail -n +2 | xargs git branch -d'
+alias v='vagrant ssh'
+alias ls='ls -ll'
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
 stty -ixon

@@ -90,6 +90,7 @@ endfunction
 nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
+" run tests
 map <leader>t :write\|:call spectacular#run_tests()<cr>
 nmap <leader>j <C-]>
 
