@@ -25,6 +25,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-jdaddy'
+Plugin 'shime/vim-livedown'
 
 " Vundle teardown
 call vundle#end()
