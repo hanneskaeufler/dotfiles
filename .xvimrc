@@ -9,3 +9,5 @@ nnoremap <c-l> <c-w>l
 
 " save files with ctrl-s
 noremap <C-S> :update<CR>
+
+set relativenumber
