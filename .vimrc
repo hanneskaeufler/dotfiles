@@ -69,6 +69,10 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
 " save files with ctrl-s
 noremap <C-S> :update<CR>
 
