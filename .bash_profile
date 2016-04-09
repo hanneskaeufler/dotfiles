@@ -22,3 +22,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 stty -ixon
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export ANDROID_HOME=~/Library/Android/sdk
