@@ -1,24 +1,39 @@
-.bash_history
+.AndroidStudio2.1/
 .CFUserTextEncoding
+.Genymobile/
 .Trash/
+.Xauthority
+.android/
+.bash_history
 .boot2docker/
+.cabal/
 .cache/
 .cocoapods/
 .composer/
 .config/
 .connecteddata/
 .cups/
+.docker/
 .dropbox/
+.frameit/
 .gem/
+.ghc/
+.gradle/
 .itmstransporter/
 .local/
+.m2/
 .node-gyp/
 .npm/
+.phantomjs/
 .putty/
+.rnd
+.rvm/
 .ssh/
 .subversion/
 .vagrant.d/
 .vim/
+.yarn-cache/
+.yarn/
 
 Applications/
 Desktop/
@@ -28,9 +43,9 @@ Dropbox/
 Library/
 Movies/
 Music/
-Public/
 Pictures/
 Projects/
-Virtualbox\ VMs/
+Public/
 Transporter/
 Trash/
+Virtualbox\ VMs/
