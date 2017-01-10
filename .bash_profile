@@ -12,6 +12,7 @@ PS1="\[\033[0;32m\]\t\[\033[0;31m\]-\[\033[0;33m\]\w\[\033[m\]\[\033[0;31m\]\$(_
 alias gst='git status'
 alias gap='git add -p'
 alias gc='git branch | cut -c 3- | selecta | xargs git checkout'
+alias gl='git lg'
 alias c=clear
 alias git-remove-merged-branches='git branch --merged | tail -r | tail -n +2 | xargs git branch -d'
 alias v='vagrant ssh'
