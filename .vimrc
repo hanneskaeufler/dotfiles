@@ -15,7 +15,7 @@ Plugin 'rking/ag.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale' " async syntax checking
 Plugin 'jgdavey/tslime.vim'
 Plugin 'beyondwords/vim-twig'
 Plugin 'tpope/vim-surround'
