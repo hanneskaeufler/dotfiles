@@ -1,0 +1,4 @@
+imap jj <esc>
+eclipseaction runtests org.eclipse.jdt.junit.junitShortcut.run
+nmap tt :runtests<CR>
+
