@@ -7,27 +7,22 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Vundle plugins here
+Plugin 'sheerun/vim-polyglot'
 Plugin 'tomasr/molokai'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-commentary'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'rking/ag.vim'
-Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'kien/ctrlp.vim'
-Plugin 'w0rp/ale' " async syntax checking
+Plugin 'w0rp/ale'
 Plugin 'jgdavey/tslime.vim'
-Plugin 'beyondwords/vim-twig'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-cucumber'
 Plugin 'davidpdrsn/vim-spectacular'
 Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-jdaddy'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'elmcast/elm-vim'
 
 " Vundle teardown
 call vundle#end()
@@ -112,22 +107,21 @@ nnoremap <CR> :nohlsearch<cr>
 " indention for yaml, scss, ruby with 2 spaces
 autocmd BufNewFile,BufRead *.yml set filetype=yaml
 autocmd FileType yaml setlocal sw=2 st=2 sts=2
-autocmd FileType scss setlocal sw=2 st=2 sts=2
+autocmd FileType scss setlocal sw=4 st=4 sts=4
 autocmd FileType ruby setlocal sw=2 st=2 sts=2
+autocmd FileType crystal setlocal sw=2 st=2 sts=2
 autocmd FileType javascript setlocal sw=2 st=2 sts=2
+autocmd FileType typescript setlocal sw=2 st=2 sts=2
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
 
+let g:polyglot_disabled = ['elm']
+
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'dir':  '\v[\/](\.)?(git|hg|svn|docs)$',
     \ 'file': '\v\.(exe|so|dll|cache\.php)$'
     \ }
 let g:ctrlp_map = '<c-p>'
-
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["html"]
-    \ }
 
 function! IsInSymfonyApp(test_file)
     return filereadable("app/phpunit.xml.dist")
@@ -146,6 +140,7 @@ call spectacular#add_test_runner("cucumber", "\./bin/behat {spec}", ".feature")
 
 call spectacular#add_test_runner("ruby", "bundle exec rspec {spec}", "_spec.rb")
 call spectacular#add_test_runner("javascript", "\./node_modules/karma/bin/karma start --single-run {spec}", "Spec.js")
+call spectacular#add_test_runner("crystal", "crystal spec {spec}", "spec")
 
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
@@ -154,6 +149,8 @@ vmap <Leader>a=> :Tabularize /=><CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 nmap <Leader>pp gqaj " pretty print json
+
+nmap <Leader>b :! clear && make<CR>
 
 set completeopt-=preview
 
