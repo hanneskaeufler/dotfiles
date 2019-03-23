@@ -5,6 +5,8 @@
 .Xauthority
 .android/
 .bash_history
+.bash_sessions/
+.bitrise/
 .boot2docker/
 .cabal/
 .cache/
