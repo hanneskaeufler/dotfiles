@@ -12,17 +12,13 @@ Plugin 'tomasr/molokai'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-commentary'
 Plugin 'rking/ag.vim'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0rp/ale'
-Plugin 'jgdavey/tslime.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'davidpdrsn/vim-spectacular'
 Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-jdaddy'
-Plugin 'elmcast/elm-vim'
 
 " Vundle teardown
 call vundle#end()
@@ -93,7 +89,6 @@ nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
 " run tests
 map <leader>t :write\|:call spectacular#run_tests()<cr>
-nmap <leader>j <C-]>
 
 " search for word under cursor
 nmap <leader>s :Ag <C-r><C-w><CR>
@@ -114,8 +109,6 @@ autocmd FileType javascript setlocal sw=2 st=2 sts=2
 autocmd FileType typescript setlocal sw=2 st=2 sts=2
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
-
-let g:polyglot_disabled = ['elm']
 
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.)?(git|hg|svn|docs)$',
@@ -148,7 +141,6 @@ nmap <Leader>a=> :Tabularize /=><CR>
 vmap <Leader>a=> :Tabularize /=><CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
-nmap <Leader>pp gqaj " pretty print json
 
 nmap <Leader>b :! clear && make<CR>
 
@@ -168,8 +160,3 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
-
-" this is supposed to syntax highlight code in blocks in markdown files
-let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'json=javascript', 'ruby', 'php']
-
-let g:jsx_ext_required = 0
