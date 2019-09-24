@@ -15,8 +15,6 @@ Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-surround'
-Plugin 'davidpdrsn/vim-spectacular'
-Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 
@@ -69,26 +67,9 @@ nnoremap k gk
 " save files with ctrl-s
 noremap <C-S> :update<CR>
 
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
-endfunction
-
 nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
-" run tests
-map <leader>t :write\|:call spectacular#run_tests()<cr>
 
 " search for word under cursor
 nmap <leader>s :Ag <C-r><C-w><CR>
@@ -116,33 +97,8 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_map = '<c-p>'
 
-function! IsInSymfonyApp(test_file)
-    return filereadable("app/phpunit.xml.dist")
-endfunction
-
-function! IsPHPUnitInBin(test_file)
-    return filereadable("bin/phpunit")
-endfunction
-
-let g:spectacular_integrate_with_tmux = 1
-call spectacular#add_test_runner("php", "\./bin/phpunit -c app/ {spec}", "Test", function("IsInSymfonyApp"))
-call spectacular#add_test_runner("php", "\./bin/phpunit {spec}", "Test", function("IsPHPUnitInBin"))
-call spectacular#add_test_runner("php", "\./vendor/bin/phpunit {spec}", "Test")
-call spectacular#add_test_runner("php", "\./bin/phpspec run {spec}", "Spec")
-call spectacular#add_test_runner("cucumber", "\./bin/behat {spec}", ".feature")
-
-call spectacular#add_test_runner("ruby", "bundle exec rspec {spec}", "_spec.rb")
-call spectacular#add_test_runner("javascript", "\./node_modules/karma/bin/karma start --single-run {spec}", "Spec.js")
-call spectacular#add_test_runner("crystal", "crystal spec {spec}", "spec")
-
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a=> :Tabularize /=><CR>
-vmap <Leader>a=> :Tabularize /=><CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-
 nmap <Leader>b :! clear && make<CR>
+nmap <Leader>d :ALEDetail<CR>
 
 set completeopt-=preview
 
