@@ -8,7 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Vundle plugins here
 Plugin 'sheerun/vim-polyglot'
-Plugin 'tomasr/molokai'
+Plugin 'danishprakash/vim-yami'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'tpope/vim-commentary'
 Plugin 'rking/ag.vim'
@@ -25,7 +25,7 @@ filetype plugin indent on
 
 syntax on
 
-colorscheme molokai
+colorscheme yami
 
 set expandtab
 set tabstop=4
