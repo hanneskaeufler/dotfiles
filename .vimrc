@@ -88,6 +88,7 @@ autocmd FileType ruby setlocal sw=2 st=2 sts=2
 autocmd FileType crystal setlocal sw=2 st=2 sts=2
 autocmd FileType javascript setlocal sw=2 st=2 sts=2
 autocmd FileType typescript setlocal sw=2 st=2 sts=2
+autocmd FileType elm setlocal colorcolumn=
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
 
