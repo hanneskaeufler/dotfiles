@@ -1,10 +1,10 @@
+.*_history
 .AndroidStudio2.1/
 .CFUserTextEncoding
 .Genymobile/
 .Trash/
 .Xauthority
 .android/
-.bash_history
 .bash_sessions/
 .bitrise/
 .boot2docker/
@@ -24,8 +24,10 @@
 .itmstransporter/
 .local/
 .m2/
+.netrc
 .node-gyp/
 .npm/
+.npmrc
 .phantomjs/
 .putty/
 .rnd
