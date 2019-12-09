@@ -7,16 +7,17 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Vundle plugins here
-Plugin 'sheerun/vim-polyglot'
-Plugin 'danishprakash/vim-yami'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'tpope/vim-commentary'
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'w0rp/ale'
-Plugin 'tpope/vim-surround'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'rking/ag.vim'
+Plugin 'sainnhe/vim-color-desert-night'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'w0rp/ale'
 
 " Vundle teardown
 call vundle#end()
@@ -25,7 +26,7 @@ filetype plugin indent on
 
 syntax on
 
-colorscheme yami
+colorscheme desert-night
 
 set expandtab
 set tabstop=4
@@ -117,3 +118,5 @@ function! InsertTabWrapper()
 endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
+
+nmap <C-p> :GFiles<CR>
