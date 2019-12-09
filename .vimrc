@@ -89,17 +89,10 @@ autocmd FileType ruby setlocal sw=2 st=2 sts=2
 autocmd FileType crystal setlocal sw=2 st=2 sts=2
 autocmd FileType javascript setlocal sw=2 st=2 sts=2
 autocmd FileType typescript setlocal sw=2 st=2 sts=2
-autocmd FileType elm setlocal colorcolumn=
+autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced automatically
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
 
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.)?(git|hg|svn|docs)$',
-    \ 'file': '\v\.(exe|so|dll|cache\.php)$'
-    \ }
-let g:ctrlp_map = '<c-p>'
-
-nmap <Leader>b :! clear && make<CR>
 nmap <Leader>d :ALEDetail<CR>
 
 set completeopt-=preview
