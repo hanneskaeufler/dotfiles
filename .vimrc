@@ -113,3 +113,7 @@ inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 nmap <C-p> :GFiles<CR>
+
+let g:netrw_banner = 0 " remove banner in explorer
+let g:netrw_liststyle = 3 " use tree view in
+
