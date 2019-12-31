@@ -53,3 +53,5 @@ Public/
 Transporter/
 Trash/
 Virtualbox\ VMs/
+.elm-analyse
+.elm
