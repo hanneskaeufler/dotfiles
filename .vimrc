@@ -8,16 +8,19 @@ Plugin 'gmarik/Vundle.vim'
 
 " Vundle plugins here
 Plugin 'Raimondi/delimitMate'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'neoclide/coc.nvim'
 Plugin 'rking/ag.vim'
 Plugin 'sainnhe/vim-color-desert-night'
+Plugin 'sbdchd/neoformat'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-surround'
-Plugin 'w0rp/ale'
 
 " Vundle teardown
 call vundle#end()
@@ -39,6 +42,7 @@ set incsearch
 set hlsearch
 set ignorecase smartcase
 set relativenumber
+set number
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
 " always show status bar
@@ -81,19 +85,13 @@ autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
 
-" indention for yaml, scss, ruby with 2 spaces
-autocmd BufNewFile,BufRead *.yml set filetype=yaml
-autocmd FileType yaml setlocal sw=2 st=2 sts=2
-autocmd FileType scss setlocal sw=4 st=4 sts=4
-autocmd FileType ruby setlocal sw=2 st=2 sts=2
-autocmd FileType crystal setlocal sw=2 st=2 sts=2
-autocmd FileType javascript setlocal sw=2 st=2 sts=2
-autocmd FileType typescript setlocal sw=2 st=2 sts=2
 autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced automatically
+autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
 
 nmap <Leader>d :ALEDetail<CR>
+nmap <Leader>l :VimuxRunLastCommand<CR>
 
 set completeopt-=preview
 
