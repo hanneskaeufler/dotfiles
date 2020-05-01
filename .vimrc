@@ -13,7 +13,6 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'neoclide/coc.nvim'
-Plugin 'rking/ag.vim'
 Plugin 'sainnhe/vim-color-desert-night'
 Plugin 'sbdchd/neoformat'
 Plugin 'sheerun/vim-polyglot'
@@ -90,7 +89,6 @@ autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
 
-nmap <Leader>d :ALEDetail<CR>
 nmap <Leader>l :VimuxRunLastCommand<CR>
 
 set completeopt-=preview
