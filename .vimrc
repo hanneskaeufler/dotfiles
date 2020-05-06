@@ -1,63 +1,4 @@
-set nocompatible
-filetype off
-
-" Vundle setup
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
-" Vundle plugins here
-Plugin 'Raimondi/delimitMate'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'janko/vim-test'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'neoclide/coc.nvim'
-Plugin 'sainnhe/vim-color-desert-night'
-Plugin 'sbdchd/neoformat'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-surround'
-
-" Vundle teardown
-call vundle#end()
-
-filetype plugin indent on
-
-syntax on
-
-colorscheme desert-night
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set colorcolumn=80
-
-set autoindent
-set incsearch
-set hlsearch
-set ignorecase smartcase
-set relativenumber
-set number
-" keep more context when scrolling off the end of a buffer
-set scrolloff=3
-" always show status bar
-set laststatus=2
-
-" Store temporary files in a central spot
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set viminfo=
-
-let mapleader=","
-
-" use jj to exit insert mode
+" Essentials {{{
 inoremap jj <ESC>
 
 " Move around splits with <c-hjkl>
@@ -66,72 +7,124 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-
-" save files with ctrl-s
-noremap <C-S> :update<CR>
+let mapleader=","
 
 nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
+nmap <CR> :nohlsearch<CR> " Clear the search buffer when hitting return
 
-" search for word under cursor
-nmap <leader>s :Ag <C-r><C-w><CR>
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
 
-" CocoaPods
-autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
+set nocompatible
+set relativenumber
+set number
+set expandtab
+" }}}
 
-" Clear the search buffer when hitting return
-nnoremap <CR> :nohlsearch<cr>
+"  Plugins, duh {{{
+call plug#begin('~/.vim/plugged')
+Plug 'Raimondi/delimitMate'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'janko/vim-test'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim'
+Plug 'sainnhe/vim-color-desert-night'
+Plug 'sbdchd/neoformat'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+call plug#end()
+" }}}
 
-autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced automatically
-autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
+" Colors {{{
+colorscheme desert-night
+" }}}
 
+" Spaces & Tabs {{{
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+" }}}
+
+" UI config {{{
+set colorcolumn=80
+set scrolloff=3 " keep more context when scrolling off the end of a buffer
+set laststatus=2 " always show status bar
+"}}}
+
+" Dunno / Misc {{{
+set autoindent
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
+set viminfo=
+set modelines=1 " Respect the modes defines as a comment on the last line
+" }}}
 
-nmap <Leader>l :VimuxRunLastCommand<CR>
+" Search {{{
+set incsearch
+set hlsearch
+set ignorecase smartcase
+" }}}
 
-set completeopt-=preview
+" COC configuration {{{
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MULTIPURPOSE TAB KEY
-" Indent if we're at the beginning of a line. Else, do completion.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+" settings recommended by coc.nvim
+" https://github.com/neoclide/coc.nvim#example-vim-configuration
+set nobackup
+set nowritebackup
+set cmdheight=2
+set hidden
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
+" }}}
 
+" File navigation {{{
 nmap <C-p> :GFiles<CR>
-
 let g:netrw_banner = 0 " remove banner in explorer
 let g:netrw_liststyle = 3 " use tree view in
+" }}}
 
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+" Language specifics {{{
+autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced automatically, no point in showing the line then
+autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby " CocoaPods
+" }}}
 
-let g:neoformat_verbose = 1
-let g:neoformat_crystal_docker = {
-            \ 'exe': 'docker',
-            \ 'args': ['run', '--rm', '-v "$(pwd):/tmp"', '-w', '/tmp', 'crystallang/crystal:0.32.0', 'crystal', 'tool', 'format'],
-            \ 'replace': 1,
-            \ 'no_append': 1,
-            \ }
-
-let g:neoformat_enabled_crystal = ['docker']
-
-autocmd BufWritePre *.js Neoformat prettier
-
+" Running tests {{{
 nmap <silent> <leader>t :TestSuite<CR>
 
+" When opening the test output in a new split, hitting ctrl-o
+" will leaver insert mode and allow me to scroll
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
+" }}}
+
+" Neoformat configuration {{{
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0
