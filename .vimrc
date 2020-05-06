@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'janko/vim-test'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'neoclide/coc.nvim'
@@ -17,6 +18,7 @@ Plugin 'sainnhe/vim-color-desert-night'
 Plugin 'sbdchd/neoformat'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-surround'
@@ -86,6 +88,7 @@ nnoremap <CR> :nohlsearch<cr>
 
 autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced automatically
 autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
 
@@ -113,3 +116,22 @@ nmap <C-p> :GFiles<CR>
 let g:netrw_banner = 0 " remove banner in explorer
 let g:netrw_liststyle = 3 " use tree view in
 
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+let g:neoformat_verbose = 1
+let g:neoformat_crystal_docker = {
+            \ 'exe': 'docker',
+            \ 'args': ['run', '--rm', '-v "$(pwd):/tmp"', '-w', '/tmp', 'crystallang/crystal:0.32.0', 'crystal', 'tool', 'format'],
+            \ 'replace': 1,
+            \ 'no_append': 1,
+            \ }
+
+let g:neoformat_enabled_crystal = ['docker']
+
+autocmd BufWritePre *.js Neoformat prettier
+
+nmap <silent> <leader>t :TestSuite<CR>
+
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+endif
