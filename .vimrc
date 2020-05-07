@@ -31,7 +31,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'janko/vim-test'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sainnhe/vim-color-desert-night'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
