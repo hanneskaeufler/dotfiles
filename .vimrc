@@ -67,6 +67,15 @@ set viminfo=
 set modelines=1 " Respect the modes defines as a comment on the last line
 " }}}
 
+" Folds {{{
+
+" Open fold under cursor (mnemonic: open)
+nmap <leader>o :foldopen<CR>
+
+" Close fold under cursor (mnemonic: close)
+nmap <leader>c :foldclose<CR>
+" }}}
+
 " Search {{{
 set incsearch
 set hlsearch
