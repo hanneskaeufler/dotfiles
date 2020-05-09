@@ -105,6 +105,16 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Symbol renaming. (mnemonic: rename)
+nmap <leader>rn <Plug>(coc-rename)
+
+" Go to definition (mnemonic: goto definition
+nmap <silent> gd <Plug>(coc-definition)
+
 " }}}
 
 " File navigation {{{
