@@ -32,6 +32,7 @@ Plug 'janko/vim-test'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'pbrisbin/vim-mkdir'
 Plug 'sainnhe/vim-color-desert-night'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
