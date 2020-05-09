@@ -106,13 +106,24 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if &filetype == 'vim'
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Symbol renaming. (mnemonic: rename)
 nmap <leader>rn <Plug>(coc-rename)
 
-" Go to definition (mnemonic: goto definition
+" Go to definition of symbol under cursor. (mnemonic: goto definition)
 nmap <silent> gd <Plug>(coc-definition)
 
 " }}}
