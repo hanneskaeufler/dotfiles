@@ -136,9 +136,9 @@ autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby " CocoaPods
 nmap <silent> <leader>t :TestSuite<CR>
 
 " When opening the test output in a new split, hitting ctrl-o
-" will leaver insert mode and allow me to scroll
+" will leave insert mode and allow me to scroll
 if has('nvim')
-  tmap <C-o> <C-\><C-n>
+  tmap jj <C-\><C-n>
 endif
 " }}}
 
