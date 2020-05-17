@@ -57,3 +57,4 @@ Virtualbox\ VMs/
 .elm
 .stack/
 .vscode/
+.oracle_jre_usage/
