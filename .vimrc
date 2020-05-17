@@ -44,6 +44,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'takac/vim-hardtime'
 call plug#end()
 " }}}
 
@@ -150,6 +151,10 @@ augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
+" }}}
+
+" Hard-Time {{{
+let g:hardtime_default_on = 1
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
