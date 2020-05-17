@@ -119,7 +119,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nmap <leader>rn <Plug>(coc-rename)
 
 " Go to definition of symbol under cursor. (mnemonic: goto definition)
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <leader>gd <Plug>(coc-definition)
 
 " }}}
 
