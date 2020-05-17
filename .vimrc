@@ -12,7 +12,10 @@ let mapleader=","
 nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
-nmap <CR> :nohlsearch<CR> " Clear the search buffer when hitting return
+nmap <CR> :nohlsearch<CR>
+nmap <leader>n :cnext<CR>
+nmap <leader>p :cprevious<CR>
+nmap <leader>gh :GBrowse<CR>
 
 " move vertically by visual line
 nnoremap j gj
