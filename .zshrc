@@ -21,7 +21,10 @@ alias gl='git lg'
 alias c=clear
 alias git-remove-merged-branches='git branch --merged | tail -r | tail -n +2 | xargs git branch -d'
 alias ls='ls -ll'
-alias vim='tmux new-session -A -s ${PWD##*/} "vim ."'
+
+function vim() {
+    tmux new-session -A -s ${PWD##*/} "vim $@"
+}
 
 stty -ixon
 
