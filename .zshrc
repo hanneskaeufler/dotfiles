@@ -14,7 +14,6 @@ zstyle ':vcs_info:git:*' formats '%b'
 setopt PROMPT_SUBST
 PROMPT='%F{green}${PWD/#$HOME/~}%f %F{yellow}(${vcs_info_msg_0_})%f %'
 
-alias vim='nvim'
 alias gst='git status'
 alias gap='git add -p'
 alias gc='git branch | cut -c 3- | fzf | xargs git checkout'
@@ -22,6 +21,7 @@ alias gl='git lg'
 alias c=clear
 alias git-remove-merged-branches='git branch --merged | tail -r | tail -n +2 | xargs git branch -d'
 alias ls='ls -ll'
+alias vim='tmux new-session -A -s ${PWD##*/} "vim ."'
 
 stty -ixon
 
