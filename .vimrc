@@ -65,6 +65,7 @@ set laststatus=2 " always show status bar
 "}}}
 
 " Dunno / Misc {{{
+set noswapfile
 set autoindent
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/web/assets/*
 set viminfo=
