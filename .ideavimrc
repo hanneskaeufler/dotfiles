@@ -1,3 +1,0 @@
-" use jj to exit insert mode
-inoremap jj <ESC>
-set relativenumber

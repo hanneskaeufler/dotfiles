@@ -58,3 +58,6 @@ Virtualbox\ VMs/
 .stack/
 .vscode/
 .oracle_jre_usage/
+.lesshst
+.vim-flavor/
+.clangd/
