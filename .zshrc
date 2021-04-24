@@ -25,5 +25,3 @@ function tvim() {
 }
 
 stty -ixon
-
-export ANDROID_HOME=~/Library/Android/sdk
