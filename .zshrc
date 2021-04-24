@@ -1,9 +1,7 @@
 # enable terminal colors
 export CLICOLOR=1
 export TERM=xterm-256color
-
-# make sure we use homebrew packackes first
-export PATH=/usr/local/bin:$PATH
+alias vim=nvim
 
 # Load version control information
 autoload -Uz vcs_info
