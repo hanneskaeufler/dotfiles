@@ -34,9 +34,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'janko/vim-test'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mhartington/oceanic-next'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'sainnhe/vim-color-desert-night'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
@@ -44,12 +43,11 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'takac/vim-hardtime'
 call plug#end()
 " }}}
 
 " Colors {{{
-colorscheme desert-night
+colorscheme OceanicNext
 " }}}
 
 " Spaces & Tabs {{{
@@ -152,10 +150,6 @@ augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
-" }}}
-
-" Hard-Time {{{
-let g:hardtime_default_on = 1
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
