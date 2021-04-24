@@ -12,3 +12,7 @@ Pictures/
 Code/
 Public/
 Trash/
+.mint/
+.zsh_sessions/
+.lesshst
+.local/
