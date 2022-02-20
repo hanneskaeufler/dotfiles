@@ -34,7 +34,9 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'janko/vim-test'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'mhartington/oceanic-next'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
@@ -60,6 +62,11 @@ set softtabstop=4
 set colorcolumn=80
 set scrolloff=3 " keep more context when scrolling off the end of a buffer
 set laststatus=2 " always show status bar
+
+lua << EOF
+require('gitsigns').setup()
+EOF
+
 "}}}
 
 " Dunno / Misc {{{
