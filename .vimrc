@@ -31,7 +31,6 @@ set expandtab
 call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'janko/vim-test'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'lewis6991/gitsigns.nvim'
@@ -140,16 +139,6 @@ autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced a
 autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby " CocoaPods
-" }}}
-
-" Running tests {{{
-nmap <silent> <leader>t :TestSuite<CR>
-
-" When opening the test output in a new split, hitting ctrl-o
-" will leave insert mode and allow me to scroll
-if has('nvim')
-  tmap jj <C-\><C-n>
-endif
 " }}}
 
 " Neoformat configuration {{{
