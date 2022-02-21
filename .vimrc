@@ -38,12 +38,10 @@ Plug 'mhartington/oceanic-next'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'sbdchd/neoformat'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
 
@@ -80,12 +78,16 @@ set modelines=1 " Respect the modes defines as a comment on the last line
 set incsearch
 set hlsearch
 set ignorecase smartcase
+
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
 " }}}
 
-" COC configuration {{{
+" Autocomplete configuration {{{
 
-" settings recommended by coc.nvim
-" https://github.com/neoclide/coc.nvim#example-vim-configuration
 set nobackup
 set nowritebackup
 set cmdheight=2
@@ -93,38 +95,7 @@ set hidden
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
-
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-    if &filetype == 'vim'
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Symbol renaming. (mnemonic: rename)
-nmap <leader>rn <Plug>(coc-rename)
-
-" Go to definition of symbol under cursor. (mnemonic: goto definition)
-nmap <silent> <leader>gd <Plug>(coc-definition)
+set completeopt=menuone,noselect
 
 " }}}
 
