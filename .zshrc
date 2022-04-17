@@ -12,6 +12,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 setopt PROMPT_SUBST
 PROMPT='%F{green}${PWD/#$HOME/~}%f %F{yellow}(${vcs_info_msg_0_})%f %'
 
+alias git='LANG=en_GB git'
 alias gst='git status'
 alias gap='git add -p'
 alias gc='git branch | cut -c 3- | fzf | xargs git checkout'
