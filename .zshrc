@@ -30,3 +30,4 @@ function tvim() {
 }
 
 stty -ixon
+autoload -Uz compinit && compinit
