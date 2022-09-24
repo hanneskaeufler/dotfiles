@@ -113,12 +113,10 @@ lua <<EOF
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
   end
 
-  -- Setup nvim-cmp.
-  local cmp = require'cmp'
+  local cmp = require('cmp')
 
   cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
       expand = function(args)
         require('snippy').expand_snippet(args.body)
       end,
@@ -145,47 +143,40 @@ lua <<EOF
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      { name = 'snippy' }, -- For snippy users.
+      { name = 'snippy' },
     }, {
       { name = 'buffer' },
     })
-  })
-
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it. 
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
-    sources = {
-      { name = 'buffer' }
-    }
   })
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }
-    , { { name = 'cmdline' } }
-)
+    sources = cmp.config.sources(
+    { { name = 'path' } },
+    { { name = 'cmdline' } })
   })
 
   -- Setup lspconfig.
+  local map = function(type, key, value)
+  	vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
+  end
+
+  local custom_attach = function(client)
+    map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
+    map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
+    map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
+  end
+
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
   require('lspconfig').rust_analyzer.setup {
-      capabilities = capabilities
-    }
-  require'lspconfig'.clangd.setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    on_attach = custom_attach,
+  }
+  require('lspconfig').clangd.setup {
+    capabilities = capabilities,
+    on_attach = custom_attach,
   }
 EOF
 
