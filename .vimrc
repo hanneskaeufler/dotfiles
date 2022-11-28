@@ -39,10 +39,10 @@ Plug 'mhartington/oceanic-next'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'sbdchd/neoformat'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'sheerun/vim-polyglot'
 
 " Autocomplete
 Plug 'hrsh7th/cmp-buffer'
