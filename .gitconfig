@@ -3,6 +3,7 @@
 	email = hannes.kaeufler@gmail.com
 [push]
 	default = simple
+	autoSetupRemote = true
 [core]
 	editor = nvim
 	excludesfile = /Users/hanneskaeufler/.gitignore_global
