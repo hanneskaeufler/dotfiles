@@ -90,7 +90,7 @@ set incsearch
 set hlsearch
 set ignorecase smartcase
 
-command! -bang -nargs=* GGrep
+command! -bang -nargs=* Ggrep
   \ call fzf#vim#grep(
   \   'git grep --line-number -- '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
