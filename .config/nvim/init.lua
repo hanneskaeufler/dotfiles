@@ -6,6 +6,7 @@ vim.call('plug#begin', '~/.vim/plugged')
 
 Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'hanneskaeufler/bzlrun.nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'lewis6991/gitsigns.nvim'
@@ -17,7 +18,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'hanneskaeufler/bzlrun.nvim'
 
 -- Language Server Stuff
 Plug 'hrsh7th/cmp-buffer'
