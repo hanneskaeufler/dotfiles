@@ -55,6 +55,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'dcampos/nvim-snippy'
 Plug 'dcampos/cmp-snippy'
+Plug 'hanneskaeufler/bzlrun.nvim'
 call plug#end()
 " }}}
 
@@ -207,5 +208,11 @@ augroup fmt
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 " }}}
+
+lua << EOF
+local bzlrun = require('bzlrun')
+vim.keymap.set("n", "<leader>t", bzlrun.run_tests_for_current_buffer)
+require("Comment").setup()
+EOF
 
 " vim:foldmethod=marker:foldlevel=0
