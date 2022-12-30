@@ -51,6 +51,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'dcampos/nvim-snippy'
 Plug 'dcampos/cmp-snippy'
 call plug#end()
@@ -109,6 +111,13 @@ set signcolumn=yes
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
+  require('mason').setup()
+  local servers = { 'clangd', 'rust_analyzer', 'jdtls' }
+
+  require('mason-lspconfig').setup {
+    ensure_installed = servers,
+  }
+
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -171,14 +180,12 @@ lua <<EOF
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-  require('lspconfig').rust_analyzer.setup {
-    capabilities = capabilities,
-    on_attach = custom_attach,
-  }
-  require('lspconfig').clangd.setup {
-    capabilities = capabilities,
-    on_attach = custom_attach,
-  }
+  for _, lsp in ipairs(servers) do
+    require('lspconfig')[lsp].setup {
+      on_attach = custom_attach,
+      capabilities = capabilities,
+    }
+  end
 EOF
 
 " }}}
