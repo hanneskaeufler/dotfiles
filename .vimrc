@@ -7,8 +7,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-let mapleader=","
-
 nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
