@@ -18,6 +18,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+Plug('nvim-treesitter/nvim-treesitter', {
+    ['do'] = function()
+        vim.call('TSUpdate')
+    end
+})
 
 -- Language Server Stuff
 Plug 'hrsh7th/cmp-buffer'
@@ -32,6 +37,11 @@ Plug 'dcampos/nvim-snippy'
 Plug 'dcampos/cmp-snippy'
 
 vim.call('plug#end')
+
+-- Highlighting
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "c","cpp","rust","bash","gitignore","gitcommit","html","json","make", "markdown","ruby","typescript","yaml", "lua", "vim", "help", "python" },
+}
 
 -- Language Server Stuff
 require('mason').setup()
