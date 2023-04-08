@@ -83,28 +83,36 @@ cmp.setup {
         end,
     },
     mapping = {
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<TAB>'] = {
+          i = function()
+            local cmp = require('cmp')
+            local types = require('cmp.types')
             if cmp.visible() then
-                cmp.select_next_item()
-            elseif has_words_before() then
-                cmp.complete()
+              cmp.select_next_item({ behavior = types.cmp.SelectBehavior.Insert })
             else
-                fallback()
+              cmp.complete()
             end
-        end, { "i", "s" }),
-
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            cmp.select_prev_item()
-        else
-            fallback()
-        end
-    end, { "i", "s" }),
-},
-sources = cmp.config.sources {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-}
+          end,
+        },
+        ['<S-TAB>'] = {
+          i = function()
+            local cmp = require('cmp')
+            local types = require('cmp.types')
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert })
+            else
+              cmp.complete()
+            end
+          end,
+        },
+        ["<CR>"] = {
+            i = cmp.mapping.confirm({ select = false }),
+        }
+    },
+    sources = cmp.config.sources {
+        { name = 'nvim_lsp' },
+        { name = 'buffer' },
+    }
 }
 
 cmp.setup.cmdline(':', {
