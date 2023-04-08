@@ -70,7 +70,7 @@ command! -bang -nargs=* Ggrep
 " }}}
 
 " File navigation {{{
-nmap <C-p> :GFiles<CR>
+nmap <C-p> :GFiles --cached --others --exclude-standard<CR>
 let g:netrw_banner = 0 " remove banner in explorer
 let g:netrw_liststyle = 3 " use tree view in
 " }}}
