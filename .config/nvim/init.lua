@@ -136,7 +136,10 @@ end
 local custom_attach = function(client)
     map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
     map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
-    map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
+    map('n','<leader>r','<cmd>lua vim.lsp.buf.rename()<CR>')
+    map('n','<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    map('n','<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
+    map('n','<leader>s', '<cmd>lua vim.lsp.buf.hover()<CR>')
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
