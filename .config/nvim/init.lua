@@ -40,7 +40,25 @@ vim.call('plug#end')
 
 -- Highlighting
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "c","cpp","rust","bash","gitignore","gitcommit","html","json","make", "markdown","ruby","typescript","yaml", "lua", "vim", "help", "python" },
+  ensure_installed = {
+    "c",
+    "cpp",
+    "rust",
+    "bash",
+    "gitignore",
+    "gitcommit",
+    "html",
+    "json",
+    "make",
+    "markdown",
+    "ruby",
+    "typescript",
+    "yaml",
+    "lua",
+    "vim",
+    "help",
+    "python"
+  }
 }
 
 -- Language Server Stuff
