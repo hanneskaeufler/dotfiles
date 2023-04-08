@@ -4,6 +4,8 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.vim/plugged')
 
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hanneskaeufler/bzlrun.nvim'
@@ -149,3 +151,7 @@ local bzlrun = require('bzlrun')
 vim.keymap.set("n", "<leader>t", bzlrun.run_tests_for_current_buffer)
 
 vim.cmd('source ~/.vimrc')
+
+-- Statusline
+require('nvim-web-devicons').setup()
+require('lualine').setup()
