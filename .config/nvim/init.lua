@@ -154,4 +154,10 @@ vim.cmd('source ~/.vimrc')
 
 -- Statusline
 require('nvim-web-devicons').setup()
-require('lualine').setup()
+require('lualine').setup({
+    sections = {
+        lualine_b = {},
+        lualine_x = {'diagnostics'},
+        lualine_y = {'branch'}
+    }
+})
