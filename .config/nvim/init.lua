@@ -127,6 +127,12 @@ local map = function(type, key, value)
     vim.api.nvim_buf_set_keymap(0, type, key, value, { noremap = true, silent = true })
 end
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 local custom_attach = function(client)
     map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
     map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
