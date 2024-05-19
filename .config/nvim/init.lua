@@ -64,7 +64,7 @@ require('nvim-treesitter.configs').setup {
 
 -- Language Server Stuff
 require('mason').setup()
-local servers = { 'clangd', 'rust_analyzer', 'jdtls' }
+local servers = { 'clangd', 'rust_analyzer', 'jdtls', 'helm_ls' }
 
 require('mason-lspconfig').setup {
     ensure_installed = servers,
