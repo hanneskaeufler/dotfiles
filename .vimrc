@@ -79,7 +79,6 @@ let g:netrw_liststyle = 3 " use tree view in
 autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced automatically, no point in showing the line then
 autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
-autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby " CocoaPods
 " }}}
 
 " Neoformat configuration {{{
