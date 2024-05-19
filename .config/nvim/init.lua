@@ -17,7 +17,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug('nvim-treesitter/nvim-treesitter', {
