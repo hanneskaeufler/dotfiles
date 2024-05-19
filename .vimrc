@@ -84,7 +84,8 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
 " Neoformat configuration {{{
 augroup fmt
   autocmd!
-  autocmd BufWritePre * try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry
+  autocmd BufWritePre *.py lua vim.lsp.buf.format({ async = false })
+  autocmd BufWritePre *.cpp,*.hpp,*.c,*.h try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry
 augroup END
 " }}}
 
