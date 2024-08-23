@@ -63,18 +63,6 @@ set incsearch
 set hlsearch
 set ignorecase smartcase
 
-command! -bang -nargs=* Ggrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
-  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-" }}}
-
-" File navigation {{{
-nmap <C-p> :GFiles --cached --others --exclude-standard<CR>
-let g:netrw_banner = 0 " remove banner in explorer
-let g:netrw_liststyle = 3 " use tree view in
-" }}}
-
 " Language specifics {{{
 autocmd FileType elm setlocal colorcolumn= " Using elm-format this is enforced automatically, no point in showing the line then
 autocmd FileType crystal setlocal shiftwidth=2 softtabstop=2

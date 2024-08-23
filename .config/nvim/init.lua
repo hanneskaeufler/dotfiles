@@ -9,11 +9,11 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hanneskaeufler/bzlrun.nvim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.8' })
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mhartington/oceanic-next'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
@@ -76,7 +76,6 @@ local has_words_before = function()
 end
 
 local cmp = require('cmp')
-
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -169,3 +168,12 @@ require('lualine').setup({
         lualine_y = {'branch'}
     }
 })
+
+-- File Explorer
+require("telescope").load_extension "file_browser"
+vim.keymap.set("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+
+-- File navigation / Project wide search
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
