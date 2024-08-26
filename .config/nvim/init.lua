@@ -12,6 +12,7 @@ Plug 'hanneskaeufler/bzlrun.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.8' })
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mhartington/oceanic-next'
 Plug 'pbrisbin/vim-mkdir'
@@ -169,10 +170,6 @@ require('lualine').setup({
     }
 })
 
--- File Explorer
-require("telescope").load_extension "file_browser"
-vim.keymap.set("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
-
 -- File navigation / Project wide search
 require('telescope').setup({
     pickers = {
@@ -185,3 +182,9 @@ require('telescope').setup({
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
+
+-- File Explorer
+require("telescope").load_extension "file_browser"
+vim.keymap.set("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+
+require("telescope").load_extension("ui-select")
