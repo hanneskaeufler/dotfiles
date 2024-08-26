@@ -174,6 +174,14 @@ require("telescope").load_extension "file_browser"
 vim.keymap.set("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 
 -- File navigation / Project wide search
+require('telescope').setup({
+    pickers = {
+        git_files = {
+            show_untracked = true
+        }
+    }
+})
+
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
