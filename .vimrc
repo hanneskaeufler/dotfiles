@@ -7,7 +7,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nmap <leader>e :Explore<CR>
 nmap <leader>f <C-W>_
 nmap <leader>uf <C-W>=
 nmap <CR> :nohlsearch<CR>
@@ -72,7 +71,7 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
 " Neoformat configuration {{{
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.py lua vim.lsp.buf.format({ async = false })
+  autocmd BufWritePre *.py,*.rs lua vim.lsp.buf.format({ async = false })
   autocmd BufWritePre *.cpp,*.hpp,*.c,*.h try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry
 augroup END
 " }}}

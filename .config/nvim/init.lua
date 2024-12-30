@@ -11,15 +11,16 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'hanneskaeufler/bzlrun.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.8' })
-Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mhartington/oceanic-next'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'sbdchd/neoformat'
 Plug 'sheerun/vim-polyglot'
+Plug 'stevearc/oil.nvim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+Plug 'github/copilot.vim'
 Plug('nvim-treesitter/nvim-treesitter', {
     ['do'] = function()
         vim.call('TSUpdate')
@@ -65,7 +66,7 @@ require('nvim-treesitter.configs').setup {
 
 -- Language Server Stuff
 require('mason').setup()
-local servers = { 'clangd', 'rust_analyzer', 'jdtls', 'helm_ls', 'ruff_lsp'}
+local servers = { 'clangd', 'rust_analyzer', 'jdtls', 'helm_ls', 'ruff', 'gopls'}
 
 require('mason-lspconfig').setup {
     ensure_installed = servers,
@@ -179,12 +180,22 @@ require('telescope').setup({
     }
 })
 
+require("telescope").load_extension("ui-select")
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
+vim.keymap.set('n', '<C-s>', builtin.live_grep, {})
 
 -- File Explorer
-require("telescope").load_extension "file_browser"
-vim.keymap.set("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+require("oil").setup({
+  default_file_explorer = true,
+})
 
-require("telescope").load_extension("ui-select")
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Copilot
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+    expr = true,
+    replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
