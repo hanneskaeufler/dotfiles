@@ -31,3 +31,14 @@ function tvim() {
 
 stty -ixon
 autoload -Uz compinit && compinit
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/hanneskaeufler/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# bun completions
+[ -s "/Users/hanneskaeufler/.bun/_bun" ] && source "/Users/hanneskaeufler/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
