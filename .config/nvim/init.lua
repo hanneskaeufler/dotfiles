@@ -192,6 +192,9 @@ require("oil").setup({
   use_default_keymaps = true,
   view_options = {
     show_hidden = true,
+    is_always_hidden = function(name, bufnr)
+      return name:match(".git$")
+    end,
   },
   keymaps = {
     ["<C-p>"] = false,
