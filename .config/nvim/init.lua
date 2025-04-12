@@ -189,6 +189,13 @@ vim.keymap.set('n', '<C-s>', builtin.live_grep, {})
 -- File Explorer
 require("oil").setup({
   default_file_explorer = true,
+  use_default_keymaps = true,
+  view_options = {
+    show_hidden = true,
+  },
+  keymaps = {
+    ["<C-p>"] = false,
+  }
 })
 
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
