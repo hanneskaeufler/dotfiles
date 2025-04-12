@@ -177,7 +177,10 @@ require('telescope').setup({
         git_files = {
             show_untracked = true
         }
-    }
+    },
+    defaults = {
+        path_display = { "truncate" },
+    },
 })
 
 require("telescope").load_extension("ui-select")
