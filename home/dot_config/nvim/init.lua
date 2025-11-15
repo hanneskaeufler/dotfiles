@@ -10,7 +10,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hanneskaeufler/bzlrun.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.8' })
+Plug('nvim-telescope/telescope.nvim', { ['tag'] = 'v0.1.9' })
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'mhartington/oceanic-next'
