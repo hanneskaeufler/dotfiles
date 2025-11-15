@@ -6,7 +6,7 @@
 	autoSetupRemote = true
 [core]
 	editor = nvim
-	excludesfile = /Users/hanneskaeufler/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [help]
 	autocorrect = 1
 [alias]
