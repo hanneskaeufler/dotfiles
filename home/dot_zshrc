@@ -34,12 +34,4 @@ function tvim() {
 stty -ixon
 autoload -Uz compinit && compinit
 
-
-# bun completions
-[ -s "/Users/hanneskaeufler/.bun/_bun" ] && source "/Users/hanneskaeufler/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 . "$HOME/.local/bin/env"
