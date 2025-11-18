@@ -1,1 +1,2 @@
 . "$HOME/.cargo/env"
+. "/Users/hanneskaeufler/.local/share/bob/env/env.sh"
