@@ -1,69 +1,37 @@
 vim.g.mapleader = ","
 
-local Plug = vim.fn['plug#']
-
-vim.call('plug#begin', '~/.vim/plugged')
-
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'Raimondi/delimitMate'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'hanneskaeufler/bzlrun.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug('nvim-telescope/telescope.nvim', { ['tag'] = 'v0.1.9' })
-Plug 'nvim-telescope/telescope-ui-select.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'mhartington/oceanic-next'
-Plug 'pbrisbin/vim-mkdir'
-Plug 'sbdchd/neoformat'
-Plug 'sheerun/vim-polyglot'
-Plug 'stevearc/oil.nvim'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-surround'
-Plug 'github/copilot.vim'
-Plug('nvim-treesitter/nvim-treesitter', {
-    ['do'] = function()
-        vim.call('TSUpdate')
-    end
-})
-Plug 'k2589/getgithublink.nvim'
+vim.pack.add({
+ 'https://github.com/nvim-lualine/lualine.nvim',
+ 'https://github.com/nvim-tree/nvim-web-devicons',
+ 'https://github.com/Raimondi/delimitMate',
+ 'https://github.com/bronson/vim-trailing-whitespace',
+ 'https://github.com/hanneskaeufler/bzlrun.nvim',
+ 'https://github.com/nvim-lua/plenary.nvim',
+ { src = 'https://github.com/nvim-telescope/telescope.nvim', version = 'v0.1.9' },
+ 'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+ 'https://github.com/lewis6991/gitsigns.nvim',
+ 'https://github.com/mhartington/oceanic-next',
+ 'https://github.com/pbrisbin/vim-mkdir',
+ 'https://github.com/sbdchd/neoformat',
+ 'https://github.com/sheerun/vim-polyglot',
+ 'https://github.com/stevearc/oil.nvim',
+ 'https://github.com/tpope/vim-endwise',
+ 'https://github.com/tpope/vim-surround',
+ 'https://github.com/github/copilot.vim',
+ 'https://github.com/k2589/getgithublink.nvim',
 
 -- Language Server Stuff
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'dcampos/nvim-snippy'
-Plug 'dcampos/cmp-snippy'
-
-vim.call('plug#end')
-
--- Highlighting
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {
-    "c",
-    "cpp",
-    "rust",
-    "bash",
-    "gitignore",
-    "gitcommit",
-    "html",
-    "json",
-    "make",
-    "markdown",
-    "ruby",
-    "typescript",
-    "yaml",
-    "lua",
-    "vim",
-    "help",
-    "python"
-  }
-}
+ 'https://github.com/hrsh7th/cmp-buffer',
+ 'https://github.com/hrsh7th/cmp-cmdline',
+ 'https://github.com/hrsh7th/cmp-nvim-lsp',
+ 'https://github.com/hrsh7th/cmp-path',
+ 'https://github.com/hrsh7th/nvim-cmp',
+ 'https://github.com/neovim/nvim-lspconfig',
+ 'https://github.com/williamboman/mason.nvim',
+ 'https://github.com/williamboman/mason-lspconfig.nvim',
+ 'https://github.com/dcampos/nvim-snippy',
+ 'https://github.com/dcampos/cmp-snippy',
+})
 
 -- Language Server Stuff
 require('mason').setup()
