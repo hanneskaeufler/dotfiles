@@ -3,6 +3,7 @@
 echo "Installing on linux ..."
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
+echo "Installing on macos ..."
 brew install bob
 bob use nightly
 {{ end -}}
