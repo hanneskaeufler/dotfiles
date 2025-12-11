@@ -121,6 +121,18 @@ for _, lsp in ipairs(servers) do
     })
 end
 
+-- Buffer diagnostics
+
+vim.keymap.set("n", "<leader>w", function()
+  require("telescope.builtin").diagnostics({
+    layout_strategy = "center",
+    layout_config = {
+      height = 0.6,
+      width = 0.6,
+    }
+  })
+end, { desc = "Show LSP diagnostics" })
+
 -- Show git status in left number column
 require('gitsigns').setup()
 
