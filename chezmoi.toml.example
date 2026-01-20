@@ -1,0 +1,9 @@
+[data]
+name = "MYNAME"
+email = "MYMAIL"
+username = "MYUSER"
+use_rust = false
+
+[data.proxydetox]
+enabled = true
+no_proxy = "127.0.0.1,localhost"
