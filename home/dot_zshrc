@@ -33,5 +33,3 @@ function tvim() {
 
 stty -ixon
 autoload -Uz compinit && compinit
-
-. "$HOME/.local/bin/env"
