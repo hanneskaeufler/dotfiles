@@ -1,0 +1,18 @@
+{
+	"auths": {
+{{- range .docker.auths}}
+		"{{ . }}": {}
+{{- end }}
+	},
+	"credsStore": "desktop"
+{{- if .proxydetox.enabled -}},{{- end -}}
+{{- if .proxydetox.enabled }}
+	"proxies": {
+		"default": {
+			"httpProxy": "http://host.docker.internal:3128",
+			"httpsProxy": "http://host.docker.internal:3128"
+		}
+	},
+{{- end }}
+	"currentContext": "desktop-linux"
+}
