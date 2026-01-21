@@ -11,4 +11,7 @@ brew install rustup
 rustup toolchain install stable
 rustup default stable
 {{ end -}}
+{{ if .use_aws -}}
+brew install awscli kubectl helm k9s node
+{{ end -}}
 {{ end -}}

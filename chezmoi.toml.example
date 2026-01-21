@@ -3,6 +3,7 @@ name = "MYNAME"
 email = "MYMAIL"
 username = "MYUSER"
 use_rust = false
+use_aws = false
 
 [data.proxydetox]
 enabled = true
