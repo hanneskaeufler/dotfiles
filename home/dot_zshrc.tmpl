@@ -7,6 +7,10 @@ export https_proxy=$HTTP_PROXY
 export no_proxy=$NO_PROXY
 {{ end -}}
 
+{{ if .use_aws -}}
+export PATH="/opt/homebrew/opt/helm@3/bin:$PATH"
+{{ end -}}
+
 # enable terminal colors
 # export CLICOLOR=1
 # export TERM=iterm2

@@ -4,7 +4,7 @@ echo "Installing on linux ..."
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 echo "Installing on macos ..."
-brew install bob tmux git zsh-vi-mode uv
+brew install bob tmux git zsh-vi-mode uv fzf
 bob use nightly
 {{ if .use_rust -}}
 brew install rustup
@@ -12,6 +12,6 @@ rustup toolchain install stable
 rustup default stable
 {{ end -}}
 {{ if .use_aws -}}
-brew install awscli kubectl helm k9s node
+brew install awscli kubectl helm@3 k9s node
 {{ end -}}
 {{ end -}}
