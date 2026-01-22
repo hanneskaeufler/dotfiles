@@ -4,7 +4,7 @@ echo "Installing on linux ..."
 {{ else if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 echo "Installing on macos ..."
-brew install bob tmux git zsh-vi-mode uv fzf ripgrep
+brew install bob tmux git zsh-vi-mode uv fzf ripgrep gh
 bob use nightly
 {{ if .use_rust -}}
 brew install rustup
