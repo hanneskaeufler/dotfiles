@@ -157,6 +157,11 @@ require('telescope').setup({
     pickers = {
         git_files = {
             show_untracked = true
+        },
+        live_grep = {
+          additional_args = function(_)
+              return { "--hidden" }
+          end
         }
     },
     defaults = {
