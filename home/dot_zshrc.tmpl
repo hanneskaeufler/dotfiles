@@ -18,7 +18,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' formats '%b'
 # Set up the prompt (with git branch name)
 setopt PROMPT_SUBST
-PROMPT='%F{green}${PWD/#$HOME/~}%f %F{yellow}(${vcs_info_msg_0_})%f %'
+PROMPT='%F{green}${PWD/#$HOME/~}%f %F{yellow}(${vcs_info_msg_0_})%f %% '
 
 alias git='LANG=en_GB git'
 alias gst='git status'
