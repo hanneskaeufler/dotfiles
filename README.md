@@ -9,7 +9,7 @@
 brew install chezmoi
 # Ubuntu: https://www.chezmoi.io/install/#one-line-binary-install
 
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply hanneskaeufler
+chezmoi init https://github.com/hanneskaeufler/dotfiles.git
 ```
 
 ## Step 2: Edit config
@@ -20,3 +20,7 @@ vim ~/.config/chezmoi/chezmoi.toml
 ```
 
 ## Step 3: Profit
+
+```zsh
+chezmoi apply
+```
