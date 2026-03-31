@@ -30,6 +30,7 @@ alias gp='git push'
 alias gd='git diff'
 alias c=clear
 alias git-remove-merged-branches='git branch --merged | tail -r | tail -n +2 | xargs git branch -d'
+alias git-remove-squash-merged-branches='git checkout -q main && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base main $branch) && [[ $(git cherry main $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias ls='ls -ll'
 alias ll='ls -ll'
 
