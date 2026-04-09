@@ -31,6 +31,12 @@ vim.pack.add({
  'https://github.com/williamboman/mason-lspconfig.nvim',
  'https://github.com/dcampos/nvim-snippy',
  'https://github.com/dcampos/cmp-snippy',
+
+ -- Experimental AI
+  {
+    src = "https://www.github.com/olimorris/codecompanion.nvim",
+    version = vim.version.range("^19.0.0")
+  }
 })
 
 -- Language Server Stuff
