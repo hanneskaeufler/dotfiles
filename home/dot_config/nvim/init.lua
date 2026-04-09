@@ -7,7 +7,7 @@ vim.pack.add({
  'https://github.com/bronson/vim-trailing-whitespace',
  'https://github.com/hanneskaeufler/bzlrun.nvim',
  'https://github.com/nvim-lua/plenary.nvim',
- { src = 'https://github.com/nvim-telescope/telescope.nvim', version = 'v0.1.9' },
+ { src = 'https://github.com/nvim-telescope/telescope.nvim', version = 'v0.2.1' },
  'https://github.com/nvim-telescope/telescope-ui-select.nvim',
  'https://github.com/lewis6991/gitsigns.nvim',
  'https://github.com/mhartington/oceanic-next',
