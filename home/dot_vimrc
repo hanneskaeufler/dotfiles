@@ -72,7 +72,7 @@ autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
 augroup fmt
   autocmd!
   autocmd BufWritePre *.py,*.rs lua vim.lsp.buf.format({ async = false })
-  autocmd BufWritePre *.cpp,*.hpp,*.c,*.h try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry
+  autocmd BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry
 augroup END
 " }}}
 
