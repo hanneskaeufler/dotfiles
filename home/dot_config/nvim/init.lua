@@ -142,9 +142,37 @@ end, { desc = "Show LSP diagnostics" })
 -- Show git status in left number column
 require('gitsigns').setup()
 
--- Run tests with bazel
+-- Run tests with {bazel,cargo}
+
+local function is_cargo_workspace()
+  local bufname = vim.api.nvim_buf_get_name(0)
+  if bufname == "" then
+    return false
+  end
+
+  local dir = vim.fn.fnamemodify(bufname, ":p:h")
+
+  -- Search upwards for Cargo.toml
+  local cargo_toml = vim.fs.find(
+    "Cargo.toml",
+    { path = dir, upward = true, stop = vim.loop.os_homedir() }
+  )
+
+  return not vim.tbl_isempty(cargo_toml)
+end
+
 local bzlrun = require('bzlrun')
-vim.keymap.set("n", "<leader>t", bzlrun.run_tests_for_current_buffer)
+
+local function run_tests()
+  if is_cargo_workspace() then
+    vim.cmd("split | terminal cargo test")
+    vim.cmd("startinsert")
+  else
+    bzlrun.run_tests_for_current_buffer()
+  end
+end
+
+vim.keymap.set("n", "<leader>t", run_tests, { desc = "Run tests (Cargo or Bazel)" })
 
 vim.cmd('source ~/.vimrc')
 
